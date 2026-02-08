@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nishat ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #ffe6ec, #fff);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      color: #b30047;
+    }
+
+    .box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 360px;
+    }
+
+    .heart {
+      font-size: 60px;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 20px 0 15px;
+    }
+
+    .sub {
+      font-size: 16px;
+      margin-bottom: 25px;
+      color: #80002a;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 17px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      position: absolute;
+      transition: 0.2s;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+      left: 30px;
+      bottom: 20px;
+    }
+
+    #no {
+      background: #ccc;
+      color: #555;
+      right: 30px;
+      bottom: 20px;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+      min-height: 40px;
+      color: #b30047;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <div class="heart">❤️</div>
+
+    <h1>Nishat, will you be my Valentine?</h1>
+    <div class="sub">Be honest… but choose wisely 😌</div>
+
+    <div class="buttons">
+      <button id="yes">Yes 💖</button>
+      <button id="no">No 🙄</button>
+    </div>
+
+    <div class="message" id="response"></div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const response = document.getElementById("response");
+
+    const noMessages = [
+      "Hey… think again 😏",
+      "Are you sure? I’m actually pretty nice.",
+      "That button doesn’t feel right, does it?",
+      "Come on… you know you want to say yes 💕",
+      "Last chance… I’ll make it worth it 😌"
+    ];
+
+    let noCount = 0;
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+      response.textContent = noMessages[Math.min(noCount, noMessages.length - 1)];
+      noCount++;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      response.textContent = "I knew it ❤️ You just made me the happiest person today.";
+    });
+  </script>
+
+</body>
+</html>
